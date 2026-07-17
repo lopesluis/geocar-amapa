@@ -1,0 +1,13 @@
+[general]
+name=GeoCAR Amapá
+qgisMinimumVersion=3.34
+description=Ferramenta de apoio para consulta e recorte da Base de Referência do CAR no Amapá. / Support tool for consulting and clipping the CAR Reference Database in Amapá.
+about=O GeoCAR Amapá é uma ferramenta de apoio desenvolvida para auxiliar proprietários, possuidores, responsáveis técnicos e demais usuários na consulta e utilização da Base de Referência do Cadastro Ambiental Rural (CAR) no Estado do Amapá. O complemento permite realizar recortes das camadas de referência a partir do polígono do imóvel e disponibiliza informações e cálculos orientativos para apoiar a elaboração do cadastro. As informações geradas possuem caráter orientativo e não substituem a análise realizada pelo órgão ambiental competente.
+version=1.0
+author=Luís Lopes e Pedro Américo Jr
+email=geo.luislopes@gmail.com
+category=Vector
+icon=icon.png
+tracker=
+repository=
+homepage=
