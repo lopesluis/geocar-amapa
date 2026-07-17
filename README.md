@@ -3,7 +3,7 @@
 ## Ferramenta de apoio ao Cadastro Ambiental Rural
 
 **Autores:** Luís Lopes e Pedro Américo Jr.
-**Versão:** 1.2.0
+**Versão:** 1.0
 **Compatibilidade:** QGIS 3.34 ou superior
 
 ---
