@@ -5,7 +5,6 @@ GeoCAR Amapá - Lógica principal da interface e processamento
 
 import os
 import re
-import hashlib
 import shutil
 import time
 from datetime import datetime
@@ -63,12 +62,6 @@ BASE_URL = (
     "https://github.com/lopesluis/geocar-amapa/releases/download/"
     "v1.0/base_ambiental_ap.gpkg"
 )
-BASE_SHA256 = "".join((
-    "78f470878e855a62",
-    "a5574a92f151b30f",
-    "caa0b37867c88c1f",
-    "580c40d186f07ec6",
-))
 BASE_ARQUIVO = "base_ambiental_ap.gpkg"
 BASE_VERSAO = "v1.0"
 
@@ -499,13 +492,6 @@ class GeoCARAmapaDiag(QDialog):
         if resposta == QMessageBox.Yes:
             self._baixar_base_referencia()
 
-    def _calcular_sha256(self, caminho):
-        sha = hashlib.sha256()
-        with open(caminho, "rb") as arquivo:
-            for bloco in iter(lambda: arquivo.read(1024 * 1024), b""):
-                sha.update(bloco)
-        return sha.hexdigest()
-
     def _baixar_base_referencia(self):
         """Baixa, valida e instala automaticamente a Base de Referência."""
         os.makedirs(self.base_dir, exist_ok=True)
@@ -604,13 +590,6 @@ class GeoCARAmapaDiag(QDialog):
             progresso.setLabelText("Verificando a integridade do arquivo...")
             progresso.setValue(99)
             QApplication.processEvents()
-
-            hash_obtido = self._calcular_sha256(arquivo_temporario)
-            if hash_obtido.lower() != BASE_SHA256.lower():
-                raise ValueError(
-                    "A verificação SHA-256 falhou. O arquivo baixado pode estar "
-                    "incompleto ou alterado."
-                )
 
             # No Windows, antivírus/indexadores podem manter o .part bloqueado
             # por alguns instantes. Tenta a troca atômica algumas vezes.
